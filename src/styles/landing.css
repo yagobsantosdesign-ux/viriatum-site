@@ -369,7 +369,7 @@ body {
   .hero-v2__divider { display: none; }
   .hero-form-card--mobile { display: flex; max-width: 100%; }
   .hero-form-card--desktop { display: none; }
-  .navbar { padding: 16px 24px; }
+  .navbar { padding: 16px 20px; }
 }
 
 /* ----------------------------------------------------------
