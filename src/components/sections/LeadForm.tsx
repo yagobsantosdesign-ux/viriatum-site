@@ -11,7 +11,7 @@ const concerns = [
 
 const stats = [
   { value: '+500', label: 'Pacientes atendidos' },
-  { value: '12', label: 'Anos de experiencia' },
+  { value: '10', label: 'Anos de experiencia' },
   { value: '24h', label: 'Resposta medica' },
 ]
 

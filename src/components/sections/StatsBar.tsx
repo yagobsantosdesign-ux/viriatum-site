@@ -3,7 +3,7 @@ const items = [
   { num: '4.9 ★',   label: 'nota média de satisfação' },
   { num: '24h',     label: 'resposta após triagem' },
   { num: '100%',    label: 'teleconsulta — sem exposição' },
-  { num: '12 anos', label: 'de experiência em saúde masculina' },
+  { num: '10 anos', label: 'de experiência em saúde masculina' },
   { num: '98%',     label: 'de pacientes relatam melhora clínica' },
 ]
 
