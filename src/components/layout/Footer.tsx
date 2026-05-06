@@ -44,7 +44,7 @@ export function Footer() {
         <span className="footer__copy">
           © {new Date().getFullYear()} Instituto Viriatum. Todos os direitos reservados.
         </span>
-        <a href="#" className="footer__privacy">Política de Privacidade</a>
+        <a href="/politica-de-privacidade" className="footer__privacy">Política de Privacidade</a>
       </div>
 
     </footer>

@@ -9,8 +9,13 @@ import { Doctor } from './components/sections/Doctor'
 import { Testimonials } from './components/sections/Testimonials'
 import { LeadForm } from './components/sections/LeadForm'
 import { FAQ } from './components/sections/FAQ'
+import { PrivacyPolicy } from './pages/PrivacyPolicy'
+
+const isPrivacyPage = window.location.pathname === '/politica-de-privacidade'
 
 export function App() {
+  if (isPrivacyPage) return <PrivacyPolicy />
+
   return (
     <>
       <Navbar />
