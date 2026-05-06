@@ -49,26 +49,40 @@ export function Hero() {
       <div className="hero-v2__glow" aria-hidden="true" />
 
       {/* ── Painel esquerdo: headline ── */}
-      <motion.div
-        className="hero-v2__left"
-        initial={{ opacity: 0, x: -24 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-      >
+      <div className="hero-v2__left">
         <div className="hero-v2__headline-block">
-          <h1 className="hero-v2__title">
+          <motion.h1
+            className="hero-v2__title"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+          >
             Seu desempenho sexual está{' '}
             <u>afetando sua vida?</u>
-          </h1>
-          <div className="hero-v2__divider" aria-hidden="true" />
-          <p className="hero-v2__sub">
+          </motion.h1>
+
+          <motion.div
+            className="hero-v2__divider"
+            aria-hidden="true"
+            initial={{ opacity: 0, scaleY: 0 }}
+            animate={{ opacity: 0.35, scaleY: 1 }}
+            style={{ originY: 0 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+          />
+
+          <motion.p
+            className="hero-v2__sub"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
+          >
             Consulta médica online, protocolo individualizado e acompanhamento real. Nossa equipe agenda tudo para você.
-          </p>
+          </motion.p>
 
           {/* Form visível apenas no mobile */}
           {formCard('hero-form-card--mobile')}
         </div>
-      </motion.div>
+      </div>
 
       {/* ── Painel direito: foto do médico + form na base ── */}
       <div className="hero-v2__right">
