@@ -1006,7 +1006,6 @@ body {
   .services-v2 { padding: 80px 40px; }
   .services-v2__grid { grid-template-columns: repeat(2, 1fr); }
   .services-v2__header { grid-template-columns: 1fr; }
-  .services-v2__header-image { display: none; }
 }
 
 @media (max-width: 640px) {
