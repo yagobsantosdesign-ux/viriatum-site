@@ -15,13 +15,11 @@ export function LeadForm() {
 
   useEffect(() => {
     function handleMessage(event: MessageEvent) {
-      if (
-        !event.data ||
-        event.data.type !== 'iv_captacao_height' ||
-        event.data.formId !== FORM_ID
-      ) return
-      if (iframeRef.current) {
+      if (!event.data || event.data.formId !== FORM_ID) return
+      if (event.data.type === 'iv_captacao_height' && iframeRef.current) {
         iframeRef.current.style.height = Math.max(event.data.height, 0) + 'px'
+      } else if (event.data.type === 'iv_captacao_redirect' && typeof event.data.url === 'string') {
+        window.location.href = event.data.url
       }
     }
     window.addEventListener('message', handleMessage)
