@@ -327,7 +327,7 @@ body {
 .hero-captacao-iframe {
   width: 100%;
   border: 0;
-  min-height: 300px;
+  min-height: 320px;
   display: block;
   border-radius: 12px;
 }
@@ -1401,7 +1401,7 @@ body {
   width: 100%;
   border: 0;
   border-radius: 12px;
-  min-height: 460px;
+  min-height: 720px;
   display: block;
   flex: 1;
 }

@@ -21,7 +21,7 @@ export function LeadForm() {
         event.data.formId !== FORM_ID
       ) return
       if (iframeRef.current) {
-        iframeRef.current.style.height = event.data.height + 'px'
+        iframeRef.current.style.height = Math.max(event.data.height, 0) + 'px'
       }
     }
     window.addEventListener('message', handleMessage)
@@ -71,8 +71,9 @@ export function LeadForm() {
           <iframe
             ref={iframeRef}
             src={FORM_SRC}
-            title="Agende sua consulta"
+            title="Form 2 - embaixo"
             scrolling="no"
+            loading="lazy"
             className="lf__form-iframe"
           />
         </AnimatedSection>

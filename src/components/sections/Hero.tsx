@@ -15,7 +15,7 @@ function CaptacaoForm({ className = '' }: { className?: string }) {
         event.data.formId !== FORM_ID
       ) return
       if (iframeRef.current) {
-        iframeRef.current.style.height = event.data.height + 'px'
+        iframeRef.current.style.height = Math.max(event.data.height, 0) + 'px'
       }
     }
     window.addEventListener('message', handleMessage)
@@ -28,6 +28,7 @@ function CaptacaoForm({ className = '' }: { className?: string }) {
       src={FORM_SRC}
       title="Form 01 - Hero"
       scrolling="no"
+      loading="lazy"
       className={`hero-captacao-iframe ${className}`}
     />
   )
