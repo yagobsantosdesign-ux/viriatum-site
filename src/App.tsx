@@ -10,11 +10,13 @@ import { Testimonials } from './components/sections/Testimonials'
 import { LeadForm } from './components/sections/LeadForm'
 import { FAQ } from './components/sections/FAQ'
 import { PrivacyPolicy } from './pages/PrivacyPolicy'
+import { Obrigado } from './pages/Obrigado'
 
-const isPrivacyPage = window.location.pathname === '/politica-de-privacidade'
+const path = window.location.pathname
 
 export function App() {
-  if (isPrivacyPage) return <PrivacyPolicy />
+  if (path === '/politica-de-privacidade') return <PrivacyPolicy />
+  if (path === '/obrigado') return <Obrigado />
 
   return (
     <>

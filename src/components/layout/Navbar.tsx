@@ -30,7 +30,9 @@ export function Navbar() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
     >
-      <img src="/logo-horizontal.svg" className="navbar__logo" alt="Instituto Viriatum" />
+      <a href="/" aria-label="Instituto Viriatum — página principal">
+        <img src="/logo-horizontal.svg" className="navbar__logo" alt="Instituto Viriatum" />
+      </a>
 
       <div className="navbar__actions">
         <a href="#triagem" className="navbar__btn">
