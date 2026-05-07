@@ -2,13 +2,16 @@ import { useEffect } from 'react'
 import { Navbar } from '../components/layout/Navbar'
 import { Footer } from '../components/layout/Footer'
 
-declare const fbq: (...args: unknown[]) => void
-
 export function Obrigado() {
   useEffect(() => {
-    if (typeof fbq !== 'undefined') {
-      fbq('track', 'Lead')
-    }
+    const script = document.createElement('script')
+    script.innerHTML = `
+      fbq('init', '26752230467744136');
+      fbq('track', 'PageView');
+      fbq('track', 'Lead');
+    `
+    document.head.appendChild(script)
+    return () => { document.head.removeChild(script) }
   }, [])
 
   return (
