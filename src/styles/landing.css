@@ -1375,7 +1375,7 @@ body {
   color: rgba(219, 196, 133, 0.4);
 }
 
-/* Coluna direita — card formulario */
+/* Coluna direita — formulário iframe */
 .lf__form-wrap {
   position: sticky;
   top: 100px;
@@ -1384,6 +1384,15 @@ body {
   margin-left: auto;
   display: flex;
   flex-direction: column;
+}
+
+.lf__form-iframe {
+  width: 100%;
+  border: 0;
+  border-radius: 12px;
+  min-height: 460px;
+  display: block;
+  flex: 1;
 }
 
 .lf__form-card {

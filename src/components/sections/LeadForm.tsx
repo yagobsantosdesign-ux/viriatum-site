@@ -1,13 +1,8 @@
-﻿import { useState } from 'react'
+import { useEffect, useRef } from 'react'
 import { AnimatedSection } from '../ui/AnimatedSection'
 
-const concerns = [
-  'Disfuncao Eretil',
-  'Saude Sexual',
-  'Reposicao Hormonal',
-  'Bem-Estar Geral',
-  'Outro',
-]
+const FORM_ID = 'e7e33513-2927-4de5-b0ed-57a385f675c7'
+const FORM_SRC = `https://escritorioviriato.com/captacao/${FORM_ID}?embed=1`
 
 const stats = [
   { value: '+500', label: 'Pacientes atendidos' },
@@ -16,7 +11,22 @@ const stats = [
 ]
 
 export function LeadForm() {
-  const [selected, setSelected] = useState<string | null>(null)
+  const iframeRef = useRef<HTMLIFrameElement>(null)
+
+  useEffect(() => {
+    function handleMessage(event: MessageEvent) {
+      if (
+        !event.data ||
+        event.data.type !== 'iv_captacao_height' ||
+        event.data.formId !== FORM_ID
+      ) return
+      if (iframeRef.current) {
+        iframeRef.current.style.height = event.data.height + 'px'
+      }
+    }
+    window.addEventListener('message', handleMessage)
+    return () => window.removeEventListener('message', handleMessage)
+  }, [])
 
   return (
     <section className="lf" id="triagem" data-navbar-theme="light">
@@ -56,68 +66,15 @@ export function LeadForm() {
           </div>
         </AnimatedSection>
 
-        {/* Coluna direita — formulario */}
+        {/* Coluna direita — formulário iframe */}
         <AnimatedSection className="lf__form-wrap" direction="right">
-          <div className="lf__form-card">
-
-            <div className="lf__form-header">
-              <svg className="lf__form-lock" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <rect x="4" y="9" width="12" height="10" rx="2" />
-                <path d="M7 9V7a3 3 0 0 1 6 0v2" strokeLinecap="round" />
-              </svg>
-              <div>
-                <p className="lf__form-title">Solicitar agendamento</p>
-                <p className="lf__form-subtitle">Nossa equipe entra em contato com voce</p>
-              </div>
-            </div>
-
-            <div className="lf__form-body">
-
-              <div className="lf__field">
-                <label className="lf__label">Primeiro nome</label>
-                <input className="lf__input" type="text" placeholder="Como prefere ser chamado" />
-              </div>
-
-              <div className="lf__field">
-                <label className="lf__label">WhatsApp</label>
-                <input className="lf__input" type="tel" placeholder="(00) 00000-0000" />
-              </div>
-
-              <div className="lf__field">
-                <label className="lf__label">Idade</label>
-                <input className="lf__input" type="number" placeholder="Sua idade" />
-              </div>
-
-              <div className="lf__field">
-                <label className="lf__label">Principal queixa</label>
-                <div className="lf__chips">
-                  {concerns.map((c) => (
-                    <button
-                      key={c}
-                      type="button"
-                      className={`lf__chip${selected === c ? ' lf__chip--active' : ''}`}
-                      onClick={() => setSelected(c)}
-                    >
-                      {c}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              <button type="button" className="lf__submit">
-                Quero agendar minha consulta
-              </button>
-
-              <div className="lf__privacy">
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" width="13" height="13">
-                  <rect x="3" y="7" width="10" height="8" rx="1.5" />
-                  <path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2" strokeLinecap="round" />
-                </svg>
-                <span>100% confidencial — dados protegidos com criptografia</span>
-              </div>
-
-            </div>
-          </div>
+          <iframe
+            ref={iframeRef}
+            src={FORM_SRC}
+            title="Agende sua consulta"
+            scrolling="no"
+            className="lf__form-iframe"
+          />
         </AnimatedSection>
 
       </div>
