@@ -1,7 +1,15 @@
+import { useEffect } from 'react'
 import { Navbar } from '../components/layout/Navbar'
 import { Footer } from '../components/layout/Footer'
 
 export function Obrigado() {
+  useEffect(() => {
+    if (typeof window.fbq === 'function') {
+      window.fbq('track', 'PageView')
+      window.fbq('track', 'Lead')
+    }
+  }, [])
+
   return (
     <>
       <Navbar />
