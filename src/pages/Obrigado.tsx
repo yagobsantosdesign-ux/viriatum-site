@@ -1,18 +1,10 @@
-import { useEffect } from 'react'
 import { Navbar } from '../components/layout/Navbar'
 import { Footer } from '../components/layout/Footer'
 
+// Dispara Lead assim que o módulo carrega — síncrono, antes do render
+;(window as Window & { fbq?: (...a: unknown[]) => void }).fbq?.('track', 'Lead')
+
 export function Obrigado() {
-  useEffect(() => {
-    const script = document.createElement('script')
-    script.innerHTML = `
-      fbq('init', '26752230467744136');
-      fbq('track', 'PageView');
-      fbq('track', 'Lead');
-    `
-    document.head.appendChild(script)
-    return () => { document.head.removeChild(script) }
-  }, [])
 
   return (
     <>
