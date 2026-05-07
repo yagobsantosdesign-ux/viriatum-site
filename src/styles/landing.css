@@ -173,7 +173,7 @@ body {
   align-items: flex-end;
   justify-content: flex-end;
   padding-top: 80px;
-  padding-bottom: 64px;
+  padding-bottom: 120px;
   position: relative;
   z-index: 1;
   background-image: url('/bg.webp');
@@ -381,6 +381,18 @@ body {
   .hero-form-card--desktop { display: none; }
   .hero-captacao-iframe.hero-form-card--desktop { display: none; }
   .navbar { padding: 16px 20px; }
+}
+
+/* Tablet only: hero igual ao mobile (foto limpa, form no painel de texto) */
+@media (min-width: 641px) and (max-width: 1000px) {
+  .hero-wrapper { height: auto; }
+  .hero-v2__right-inner { display: none; }
+  .hero-v2__right::before { display: none; }
+  .hero-v2__right { min-height: 420px; overflow: hidden; }
+  .hero-form-card--mobile { display: flex; max-width: 100%; }
+  .hero-captacao-iframe.hero-form-card--mobile { display: block; max-width: 380px; margin-left: 0; margin-right: auto; }
+  .hero-form-card--desktop { display: none; }
+  .hero-captacao-iframe.hero-form-card--desktop { display: none; }
 }
 
 /* ----------------------------------------------------------
@@ -1145,6 +1157,11 @@ body {
   .doctor-v2__photo { object-position: left top; }
 }
 
+/* Tablet only: texto do médico alinhado à esquerda */
+@media (min-width: 641px) and (max-width: 1000px) {
+  .doctor-v2__inner { margin-left: 0; }
+}
+
 /* ----------------------------------------------------------
    TESTIMONIALS v4
 ---------------------------------------------------------- */
@@ -1558,6 +1575,11 @@ body {
 @media (max-width: 960px) {
   .lf__inner { grid-template-columns: 1fr; padding-inline: 40px; }
   .lf__form-wrap { position: static; }
+}
+
+/* Tablet only: form centralizado */
+@media (min-width: 641px) and (max-width: 960px) {
+  .lf__form-wrap { margin-inline: auto; }
 }
 
 @media (max-width: 640px) {

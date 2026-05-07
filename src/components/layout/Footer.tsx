@@ -44,6 +44,7 @@ export function Footer() {
         <span className="footer__copy">
           © {new Date().getFullYear()} Instituto Viriatum. Todos os direitos reservados.
         </span>
+        <span className="footer__copy">CNPJ 66.098.686/0001-03</span>
         <a href="/politica-de-privacidade" className="footer__privacy">Política de Privacidade</a>
       </div>
 
