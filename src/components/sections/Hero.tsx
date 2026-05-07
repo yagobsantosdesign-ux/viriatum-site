@@ -1,48 +1,41 @@
-﻿import { useState } from 'react'
+import { useEffect, useRef } from 'react'
 import { motion } from 'motion/react'
 
-export function Hero() {
-  const [nome, setNome] = useState('')
-  const [whatsapp, setWhatsapp] = useState('')
+const FORM_ID = '2b862c74-3740-4db5-aa73-46f55285c5b5'
+const FORM_SRC = `https://escritorioviriato.com/captacao/${FORM_ID}?embed=1`
 
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault()
-    const msg = encodeURIComponent(
-      `Olá! Me chamo ${nome} e gostaria de iniciar minha avaliação no Instituto Viriatum. Meu WhatsApp: ${whatsapp}`
-    )
-    window.open(`https://wa.me/5511999999999?text=${msg}`, '_blank')
-  }
+function CaptacaoForm({ className = '' }: { className?: string }) {
+  const iframeRef = useRef<HTMLIFrameElement>(null)
 
-  const formCard = (extraClass = '') => (
-    <div className={`hero-form-card ${extraClass}`}>
-      <p className="hero-form-card__label">Agende sua consulta</p>
-      <form className="hero-form-card__fields" onSubmit={handleSubmit}>
-        <input
-          className="hero-form-card__input"
-          type="text"
-          placeholder="NOME COMPLETO"
-          value={nome}
-          onChange={e => setNome(e.target.value)}
-          required
-        />
-        <input
-          className="hero-form-card__input"
-          type="tel"
-          placeholder="WHATSAPP"
-          value={whatsapp}
-          onChange={e => setWhatsapp(e.target.value)}
-          required
-        />
-        <button className="hero-form-card__btn" type="submit">
-          QUERO AGENDAR MINHA CONSULTA
-        </button>
-      </form>
-      <p className="hero-form-card__disclaimer">
-        Dados confidenciais — nossa equipe entra em contato.
-      </p>
+  useEffect(() => {
+    function handleMessage(event: MessageEvent) {
+      if (
+        !event.data ||
+        event.data.type !== 'iv_captacao_height' ||
+        event.data.formId !== FORM_ID
+      ) return
+      if (iframeRef.current) {
+        iframeRef.current.style.height = event.data.height + 'px'
+      }
+    }
+    window.addEventListener('message', handleMessage)
+    return () => window.removeEventListener('message', handleMessage)
+  }, [])
+
+  return (
+    <div className={`hero-form-card ${className}`}>
+      <iframe
+        ref={iframeRef}
+        src={FORM_SRC}
+        title="Form 01 - Hero"
+        scrolling="no"
+        className="hero-form-card__iframe"
+      />
     </div>
   )
+}
 
+export function Hero() {
   return (
     <section className="hero-v2" id="inicio" data-navbar-theme="dark">
       {/* Glow decorativo — lado esquerdo */}
@@ -80,7 +73,7 @@ export function Hero() {
           </motion.p>
 
           {/* Form visível apenas no mobile */}
-          {formCard('hero-form-card--mobile')}
+          <CaptacaoForm className="hero-form-card--mobile" />
         </div>
       </div>
 
@@ -100,7 +93,7 @@ export function Hero() {
             className="hero-form-card--desktop-wrapper"
           >
             {/* Form visível apenas no desktop */}
-            {formCard('hero-form-card--desktop')}
+            <CaptacaoForm className="hero-form-card--desktop" />
           </motion.div>
         </div>
       </div>
