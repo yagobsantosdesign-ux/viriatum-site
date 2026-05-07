@@ -324,15 +324,10 @@ body {
   margin: 0;
 }
 
-.hero-form-card:has(.hero-form-card__iframe) {
-  padding: 0;
-  overflow: hidden;
-}
-
-.hero-form-card__iframe {
+.hero-captacao-iframe {
   width: 100%;
   border: 0;
-  min-height: 460px;
+  min-height: 300px;
   display: block;
   border-radius: 12px;
 }
@@ -340,6 +335,7 @@ body {
 /* Mobile: form no painel de texto; desktop: form sobre a foto */
 .hero-form-card--mobile { display: none; }
 .hero-form-card--desktop-wrapper { width: 100%; max-width: 400px; }
+.hero-captacao-iframe.hero-form-card--mobile { display: none; }
 
 /* Responsivo — tablet e abaixo */
 @media (max-width: 1200px) {
@@ -381,7 +377,9 @@ body {
   .hero-v2__right-inner { display: none; }
   .hero-v2__divider { display: none; }
   .hero-form-card--mobile { display: flex; max-width: 100%; }
+  .hero-captacao-iframe.hero-form-card--mobile { display: block; max-width: 100%; }
   .hero-form-card--desktop { display: none; }
+  .hero-captacao-iframe.hero-form-card--desktop { display: none; }
   .navbar { padding: 16px 20px; }
 }
 

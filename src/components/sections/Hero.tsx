@@ -23,15 +23,13 @@ function CaptacaoForm({ className = '' }: { className?: string }) {
   }, [])
 
   return (
-    <div className={`hero-form-card ${className}`}>
-      <iframe
-        ref={iframeRef}
-        src={FORM_SRC}
-        title="Form 01 - Hero"
-        scrolling="no"
-        className="hero-form-card__iframe"
-      />
-    </div>
+    <iframe
+      ref={iframeRef}
+      src={FORM_SRC}
+      title="Form 01 - Hero"
+      scrolling="no"
+      className={`hero-captacao-iframe ${className}`}
+    />
   )
 }
 
