@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'motion/react'
 
-export function Navbar() {
+export function Navbar({ hideCta = false }: { hideCta?: boolean } = {}) {
   const [theme, setTheme] = useState<'dark' | 'light'>('dark')
 
   useEffect(() => {
@@ -34,11 +34,13 @@ export function Navbar() {
         <img src="/logo-horizontal.svg" className="navbar__logo" alt="Instituto Viriatum" />
       </a>
 
-      <div className="navbar__actions">
-        <a href="#triagem" className="navbar__btn">
-          INICIAR TRIAGEM
-        </a>
-      </div>
+      {!hideCta && (
+        <div className="navbar__actions">
+          <a href="#triagem" className="navbar__btn">
+            INICIAR TRIAGEM
+          </a>
+        </div>
+      )}
     </motion.nav>
   )
 }

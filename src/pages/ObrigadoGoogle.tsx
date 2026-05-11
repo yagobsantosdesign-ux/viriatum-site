@@ -12,7 +12,7 @@ export function ObrigadoGoogle() {
 
   return (
     <>
-      <Navbar />
+      <Navbar hideCta />
       <main className="thanks-page" data-navbar-theme="dark">
 
         {/* Coluna esquerda: espaço reservado para fotografia */}
