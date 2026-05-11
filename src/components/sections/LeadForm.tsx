@@ -4,13 +4,17 @@ import { AnimatedSection } from '../ui/AnimatedSection'
 const FORM_ID = 'e7e33513-2927-4de5-b0ed-57a385f675c7'
 const FORM_SRC = `https://escritorioviriato.com/captacao/${FORM_ID}?embed=1`
 
+interface LeadFormProps {
+  redirectTo?: string
+}
+
 const stats = [
   { value: '+500', label: 'Pacientes atendidos' },
   { value: '10', label: 'Anos de experiencia' },
   { value: '24h', label: 'Resposta medica' },
 ]
 
-export function LeadForm() {
+export function LeadForm({ redirectTo }: LeadFormProps = {}) {
   const iframeRef = useRef<HTMLIFrameElement>(null)
 
   useEffect(() => {
@@ -19,7 +23,7 @@ export function LeadForm() {
       if (event.data.type === 'iv_captacao_height' && iframeRef.current) {
         iframeRef.current.style.height = Math.max(event.data.height, 0) + 'px'
       } else if (event.data.type === 'iv_captacao_redirect' && typeof event.data.url === 'string') {
-        window.location.href = event.data.url
+        window.location.href = redirectTo ?? event.data.url
       }
     }
     window.addEventListener('message', handleMessage)

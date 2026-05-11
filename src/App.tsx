@@ -11,12 +11,16 @@ import { LeadForm } from './components/sections/LeadForm'
 import { FAQ } from './components/sections/FAQ'
 import { PrivacyPolicy } from './pages/PrivacyPolicy'
 import { Obrigado } from './pages/Obrigado'
+import { ObrigadoGoogle } from './pages/ObrigadoGoogle'
+import { GoogleLanding } from './pages/GoogleLanding'
 
 const path = window.location.pathname
 
 export function App() {
   if (path === '/politica-de-privacidade') return <PrivacyPolicy />
   if (path === '/obrigado') return <Obrigado />
+  if (path === '/obrigado_google') return <ObrigadoGoogle />
+  if (path === '/google') return <GoogleLanding />
 
   return (
     <>
