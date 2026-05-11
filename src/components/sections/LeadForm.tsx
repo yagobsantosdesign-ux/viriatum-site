@@ -1,10 +1,10 @@
 import { useEffect, useRef } from 'react'
 import { AnimatedSection } from '../ui/AnimatedSection'
 
-const FORM_ID = 'e7e33513-2927-4de5-b0ed-57a385f675c7'
-const FORM_SRC = `https://escritorioviriato.com/captacao/${FORM_ID}?embed=1`
+const DEFAULT_FORM_ID = 'e7e33513-2927-4de5-b0ed-57a385f675c7'
 
 interface LeadFormProps {
+  formId?: string
   redirectTo?: string
 }
 
@@ -14,12 +14,13 @@ const stats = [
   { value: '24h', label: 'Resposta medica' },
 ]
 
-export function LeadForm({ redirectTo }: LeadFormProps = {}) {
+export function LeadForm({ formId = DEFAULT_FORM_ID, redirectTo }: LeadFormProps = {}) {
   const iframeRef = useRef<HTMLIFrameElement>(null)
+  const formSrc = `https://escritorioviriato.com/captacao/${formId}?embed=1`
 
   useEffect(() => {
     function handleMessage(event: MessageEvent) {
-      if (!event.data || event.data.formId !== FORM_ID) return
+      if (!event.data || event.data.formId !== formId) return
       if (event.data.type === 'iv_captacao_height' && iframeRef.current) {
         iframeRef.current.style.height = Math.max(event.data.height, 0) + 'px'
       } else if (event.data.type === 'iv_captacao_redirect' && typeof event.data.url === 'string') {
@@ -28,7 +29,7 @@ export function LeadForm({ redirectTo }: LeadFormProps = {}) {
     }
     window.addEventListener('message', handleMessage)
     return () => window.removeEventListener('message', handleMessage)
-  }, [])
+  }, [formId, redirectTo])
 
   return (
     <section className="lf" id="triagem" data-navbar-theme="light">
@@ -72,7 +73,7 @@ export function LeadForm({ redirectTo }: LeadFormProps = {}) {
         <AnimatedSection className="lf__form-wrap" direction="right">
           <iframe
             ref={iframeRef}
-            src={FORM_SRC}
+            src={formSrc}
             title="Form 2 - embaixo"
             scrolling="no"
             loading="lazy"

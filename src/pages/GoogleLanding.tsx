@@ -1,6 +1,6 @@
 import { Navbar } from '../components/layout/Navbar'
 import { Footer } from '../components/layout/Footer'
-import { Hero } from '../components/sections/Hero'
+import { HeroGoogle } from '../components/sections/HeroGoogle'
 import { StatsBar } from '../components/sections/StatsBar'
 import { PainPoints } from '../components/sections/PainPoints'
 import { HowItWorks } from '../components/sections/HowItWorks'
@@ -16,7 +16,7 @@ export function GoogleLanding() {
       <Navbar />
       <main>
         <div className="hero-wrapper">
-          <Hero />
+          <HeroGoogle />
           <StatsBar />
         </div>
         <PainPoints />
@@ -24,7 +24,7 @@ export function GoogleLanding() {
         <Services />
         <Doctor />
         <Testimonials />
-        <LeadForm redirectTo="/obrigado_google" />
+        <LeadForm formId="c9488c1c-c7d9-45a0-8321-a6f944b85b11" redirectTo="/obrigado_google" />
         <FAQ />
       </main>
       <Footer />
