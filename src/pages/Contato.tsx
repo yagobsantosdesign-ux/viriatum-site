@@ -25,13 +25,13 @@ export function Contato() {
             <div className="contato-grid">
 
               <a
-                href="https://wa.me/5500000000000"
+                href="https://wa.me/5511946128600"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="contato-card"
               >
                 <span className="contato-card__label">WHATSAPP</span>
-                <span className="contato-card__value">+55 (00) 00000-0000</span>
+                <span className="contato-card__value">+55 (11) 94612-8600</span>
                 <span className="contato-card__hint">Resposta em até 24h</span>
               </a>
 
