@@ -1,5 +1,15 @@
 {
   "buildCommand": "vite build",
   "outputDirectory": "dist",
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  "rewrites": [
+    {
+      "source": "/tratamentos",
+      "destination": "https://viriatum-quizz-produto.vercel.app/tratamentos"
+    },
+    {
+      "source": "/tratamentos/:path*",
+      "destination": "https://viriatum-quizz-produto.vercel.app/tratamentos/:path*"
+    },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
 }

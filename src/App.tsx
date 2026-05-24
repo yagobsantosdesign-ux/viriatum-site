@@ -13,6 +13,8 @@ import { PrivacyPolicy } from './pages/PrivacyPolicy'
 import { Obrigado } from './pages/Obrigado'
 import { ObrigadoGoogle } from './pages/ObrigadoGoogle'
 import { GoogleLanding } from './pages/GoogleLanding'
+import { Contato } from './pages/Contato'
+import { Tratamentos } from './pages/Tratamentos'
 
 const path = window.location.pathname
 
@@ -21,6 +23,8 @@ export function App() {
   if (path === '/obrigado') return <Obrigado />
   if (path === '/obrigado_google') return <ObrigadoGoogle />
   if (path === '/google') return <GoogleLanding />
+  if (path === '/contato') return <Contato />
+  if (path === '/tratamentos') return <Tratamentos />
 
   return (
     <>

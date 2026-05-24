@@ -1,8 +1,15 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'motion/react'
 
+const NAV_ITEMS = [
+  { href: '/', label: 'Início' },
+  { href: '/contato', label: 'Contato' },
+  { href: '/tratamentos', label: 'Tratamentos' },
+]
+
 export function Navbar({ hideCta = false }: { hideCta?: boolean } = {}) {
   const [theme, setTheme] = useState<'dark' | 'light'>('dark')
+  const currentPath = typeof window !== 'undefined' ? window.location.pathname : '/'
 
   useEffect(() => {
     const update = () => {
@@ -33,6 +40,22 @@ export function Navbar({ hideCta = false }: { hideCta?: boolean } = {}) {
       <a href="/" aria-label="Instituto Viriatum — página principal">
         <img src="/logo-horizontal.svg" className="navbar__logo" alt="Instituto Viriatum" />
       </a>
+
+      <div className="navbar__menu">
+        {NAV_ITEMS.map((item) => {
+          const isActive = currentPath === item.href
+          return (
+            <a
+              key={item.href}
+              href={item.href}
+              className={`navbar__link${isActive ? ' navbar__link--active' : ''}`}
+              aria-current={isActive ? 'page' : undefined}
+            >
+              {item.label}
+            </a>
+          )
+        })}
+      </div>
 
       {!hideCta && (
         <div className="navbar__actions">
