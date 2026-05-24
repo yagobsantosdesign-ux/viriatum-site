@@ -97,15 +97,15 @@
   font-size: var(--text-xs);
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--color-dark);
-  background-color: var(--color-gold);
+  color: #F0F5EE;
+  background-color: #3E6B35;
   padding: 12px 24px;
   border-radius: 100px;
   text-decoration: none;
-  transition: opacity 0.2s;
+  transition: background-color 0.2s;
 }
 
-.thanks__btn-home:hover { opacity: 0.85; }
+.thanks__btn-home:hover { background-color: #4A7D40; }
 
 .thanks__btn-ig {
   display: flex;
