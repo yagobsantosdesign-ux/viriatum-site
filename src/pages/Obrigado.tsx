@@ -6,7 +6,7 @@ export function Obrigado() {
   useEffect(() => {
     if (typeof window.fbq === 'function') {
       window.fbq('track', 'PageView')
-      window.fbq('track', 'Lead')
+      window.fbq('track', 'Lead', { value: 50, currency: 'BRL' })
     }
   }, [])
 
