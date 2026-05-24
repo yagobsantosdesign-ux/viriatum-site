@@ -205,14 +205,6 @@ body {
   text-decoration-skip-ink: none;
 }
 
-.hero-v2__divider {
-  width: 1px;
-  height: 96px;
-  background: var(--color-gold);
-  opacity: 0.35;
-  align-self: flex-start;
-}
-
 .hero-v2__sub {
   font-family: var(--font-body);
   font-size: var(--text-md);
@@ -375,7 +367,6 @@ body {
   .hero-v2__right { min-height: 420px; overflow: hidden; }
   .hero-v2__right::before { display: none; }
   .hero-v2__right-inner { display: none; }
-  .hero-v2__divider { display: none; }
   .hero-form-card--mobile { display: flex; max-width: 100%; }
   .hero-captacao-iframe.hero-form-card--mobile { display: block; max-width: 100%; }
   .hero-form-card--desktop { display: none; }

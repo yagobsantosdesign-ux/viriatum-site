@@ -51,15 +51,6 @@ export function Hero() {
             <u>afetando sua vida?</u>
           </motion.h1>
 
-          <motion.div
-            className="hero-v2__divider"
-            aria-hidden="true"
-            initial={{ opacity: 0, scaleY: 0 }}
-            animate={{ opacity: 0.35, scaleY: 1 }}
-            style={{ originY: 0 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-          />
-
           <motion.p
             className="hero-v2__sub"
             initial={{ opacity: 0, y: 16 }}
