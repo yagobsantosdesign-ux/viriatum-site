@@ -8,6 +8,8 @@ export function ObrigadoGoogle() {
       window.fbq('track', 'PageView')
       window.fbq('track', 'Lead', { value: 50, currency: 'BRL' })
     }
+    // Escritório Viriatum tracker
+    window.ivTrack && window.ivTrack('Lead')
   }, [])
 
   return (
