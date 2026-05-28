@@ -66,7 +66,7 @@ export function Services() {
 
         {/* Grade de 4 cards */}
         <StaggerContainer className="services-v2__grid" staggerDelay={0.1}>
-          {services.map((s) => (
+          {services.map((s, i) => (
             <StaggerItem key={s.title}>
               <div className={`service-v2-card${s.featured ? ' service-v2-card--featured' : ''}`}>
                 <div className="service-v2-card__top">
@@ -81,7 +81,7 @@ export function Services() {
                   <h3 className="service-v2-card__title">{s.title}</h3>
                   <p className="service-v2-card__desc">{s.desc}</p>
                 </div>
-                <a href="#triagem" className="service-v2-card__btn">
+                <a id={`cta-service-${i + 1}-triagem`} href="#triagem" className="service-v2-card__btn">
                   INICIAR TRIAGEM
                 </a>
               </div>

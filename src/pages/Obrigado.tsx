@@ -39,10 +39,11 @@ export function Obrigado() {
             </p>
 
             <div className="thanks__actions">
-              <a href="/" className="thanks__btn-home">
+              <a id="cta-obrigado-home" href="/" className="thanks__btn-home">
                 Voltar ao início
               </a>
               <a
+                id="cta-obrigado-instagram"
                 href="https://www.instagram.com/institutoviriatum/"
                 target="_blank"
                 rel="noopener noreferrer"

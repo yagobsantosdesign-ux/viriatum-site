@@ -39,10 +39,11 @@ export function ObrigadoGoogle() {
             </p>
 
             <div className="thanks__actions">
-              <a href="/google" className="thanks__btn-home">
+              <a id="cta-obrigado-google-home" href="/google" className="thanks__btn-home">
                 Voltar ao início
               </a>
               <a
+                id="cta-obrigado-google-instagram"
                 href="https://www.instagram.com/institutoviriatum/"
                 target="_blank"
                 rel="noopener noreferrer"

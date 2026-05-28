@@ -7,14 +7,15 @@ export function Footer() {
         <div className="footer__links-group">
           <img src="/simbol.svg" className="footer__symbol" alt="" aria-hidden="true" />
           <ul className="footer__links">
-            <li><a href="#como-funciona" className="footer__link">Como funciona</a></li>
-            <li><a href="#tratamentos" className="footer__link">Tratamentos</a></li>
-            <li><a href="#triagem" className="footer__link">Triagem</a></li>
-            <li><a href="#faq" className="footer__link">FAQ</a></li>
+            <li><a id="footer-link-como-funciona" href="#como-funciona" className="footer__link">Como funciona</a></li>
+            <li><a id="footer-link-tratamentos" href="#tratamentos" className="footer__link">Tratamentos</a></li>
+            <li><a id="footer-link-triagem" href="#triagem" className="footer__link">Triagem</a></li>
+            <li><a id="footer-link-faq" href="#faq" className="footer__link">FAQ</a></li>
           </ul>
         </div>
 
         <a
+          id="footer-link-instagram"
           className="footer__ig"
           href="https://www.instagram.com/institutoviriatum/"
           target="_blank"
@@ -45,7 +46,7 @@ export function Footer() {
           © {new Date().getFullYear()} Instituto Viriatum. Todos os direitos reservados.
         </span>
         <span className="footer__copy">CNPJ 66.098.686/0001-03</span>
-        <a href="/politica-de-privacidade" className="footer__privacy">Política de Privacidade</a>
+        <a id="footer-link-privacidade" href="/politica-de-privacidade" className="footer__privacy">Política de Privacidade</a>
       </div>
 
     </footer>

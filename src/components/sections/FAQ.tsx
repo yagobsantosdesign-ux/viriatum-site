@@ -76,7 +76,7 @@ export function FAQ() {
           </h2>
           <div className="faq-v2__cta">
             <p className="faq-v2__cta-sub">Ainda tem dúvidas? Nossa equipe responde com clareza e discrição.</p>
-            <a href="#triagem" className="btn btn--outline faq-v2__cta-btn">Falar com a equipe</a>
+            <a id="cta-faq-triagem" href="#triagem" className="btn btn--outline faq-v2__cta-btn">Falar com a equipe</a>
           </div>
         </div>
 

@@ -37,16 +37,23 @@ export function Navbar({ hideCta = false }: { hideCta?: boolean } = {}) {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
     >
-      <a href="/" aria-label="Instituto Viriatum — página principal">
+      <a
+        id="nav-logo"
+        className="navbar__logo-link"
+        href="/"
+        aria-label="Instituto Viriatum — página principal"
+      >
         <img src="/logo-horizontal.svg" className="navbar__logo" alt="Instituto Viriatum" />
       </a>
 
       <div className="navbar__menu">
         {NAV_ITEMS.map((item) => {
           const isActive = currentPath === item.href
+          const slug = item.href === '/' ? 'home' : item.href.replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, '')
           return (
             <a
               key={item.href}
+              id={`nav-link-${slug}`}
               href={item.href}
               className={`navbar__link${isActive ? ' navbar__link--active' : ''}`}
               aria-current={isActive ? 'page' : undefined}
@@ -59,7 +66,7 @@ export function Navbar({ hideCta = false }: { hideCta?: boolean } = {}) {
 
       {!hideCta && (
         <div className="navbar__actions">
-          <a href="#triagem" className="navbar__btn">
+          <a id="nav-cta-triagem" href="#triagem" className="navbar__btn">
             INICIAR TRIAGEM
           </a>
         </div>

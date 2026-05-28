@@ -364,7 +364,7 @@ export function PrivacyPolicy() {
             </article>
 
             <div className="privacy-back">
-              <a href="/" className="btn btn--secondary">← Voltar ao site</a>
+              <a id="privacy-back-home" href="/" className="btn btn--secondary">← Voltar ao site</a>
             </div>
 
           </div>

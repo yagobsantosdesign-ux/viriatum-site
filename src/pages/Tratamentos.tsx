@@ -21,6 +21,7 @@ export function Tratamentos() {
 
             <div className="tratamentos-hero__actions">
               <a
+                id="tratamentos-placeholder-quiz-preview"
                 href="https://viriatum-quizz-produto.vercel.app/tratamentos"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -28,7 +29,7 @@ export function Tratamentos() {
               >
                 Abrir Quiz (preview)
               </a>
-              <a href="/" className="btn btn--secondary">← Voltar ao início</a>
+              <a id="tratamentos-placeholder-back-home" href="/" className="btn btn--secondary">← Voltar ao início</a>
             </div>
           </div>
         </section>

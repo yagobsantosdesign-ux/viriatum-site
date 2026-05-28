@@ -25,6 +25,7 @@ export function Contato() {
             <div className="contato-grid">
 
               <a
+                id="contato-whatsapp"
                 href="https://wa.me/5511946128600"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -36,6 +37,7 @@ export function Contato() {
               </a>
 
               <a
+                id="contato-email"
                 href="mailto:contato@viriatum.com.br"
                 className="contato-card"
               >
@@ -45,6 +47,7 @@ export function Contato() {
               </a>
 
               <a
+                id="contato-instagram"
                 href="https://www.instagram.com/institutoviriatum/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -56,6 +59,7 @@ export function Contato() {
               </a>
 
               <a
+                id="contato-dpo"
                 href="mailto:privacidade@viriatum.com.br"
                 className="contato-card"
               >
@@ -79,7 +83,7 @@ export function Contato() {
             </div>
 
             <div className="contato-back">
-              <a href="/" className="btn btn--secondary">← Voltar ao início</a>
+              <a id="contato-back-home" href="/" className="btn btn--secondary">← Voltar ao início</a>
             </div>
           </div>
         </section>
