@@ -8,7 +8,7 @@ export function Footer() {
           <img src="/simbol.svg" className="footer__symbol" alt="" aria-hidden="true" />
           <ul className="footer__links">
             <li><a id="footer-link-como-funciona" href="#como-funciona" className="footer__link">Como funciona</a></li>
-            <li><a id="footer-link-tratamentos" href="#tratamentos" className="footer__link">Tratamentos</a></li>
+            <li><a id="footer-link-tratamentos" href="/tratamentos" className="footer__link">Tratamentos</a></li>
             <li><a id="footer-link-triagem" href="#triagem" className="footer__link">Triagem</a></li>
             <li><a id="footer-link-faq" href="#faq" className="footer__link">FAQ</a></li>
           </ul>
