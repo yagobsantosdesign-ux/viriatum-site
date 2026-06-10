@@ -1,21 +1,20 @@
 import { useEffect, useRef } from 'react'
 import { motion } from 'motion/react'
+import { createCaptacaoHandler } from '../../lib/captacao'
 
 const FORM_ID = 'e7e33513-2927-4de5-b0ed-57a385f675c7'
+const FORM_NAME = 'Form 01 - Hero'
 const FORM_SRC = `https://escritorioviriato.com/captacao/${FORM_ID}?embed=1`
 
 function CaptacaoForm({ className = '' }: { className?: string }) {
   const iframeRef = useRef<HTMLIFrameElement>(null)
 
   useEffect(() => {
-    function handleMessage(event: MessageEvent) {
-      if (!event.data || event.data.formId !== FORM_ID) return
-      if (event.data.type === 'iv_captacao_height' && iframeRef.current) {
-        iframeRef.current.style.height = Math.max(event.data.height, 0) + 'px'
-      } else if (event.data.type === 'iv_captacao_redirect' && typeof event.data.url === 'string') {
-        window.location.href = event.data.url
-      }
-    }
+    const handleMessage = createCaptacaoHandler({
+      formId: FORM_ID,
+      formName: FORM_NAME,
+      iframe: iframeRef.current,
+    })
     window.addEventListener('message', handleMessage)
     return () => window.removeEventListener('message', handleMessage)
   }, [])
@@ -24,7 +23,7 @@ function CaptacaoForm({ className = '' }: { className?: string }) {
     <iframe
       ref={iframeRef}
       src={FORM_SRC}
-      title="Form 01 - Hero"
+      title={FORM_NAME}
       scrolling="no"
       loading="lazy"
       className={`hero-captacao-iframe ${className}`}
