@@ -1,4 +1,4 @@
-// Helper compartilhado para os iframes de captação (escritorioviriato.com).
+// Helper compartilhado para os iframes de captação (www.escritoriovtm.com).
 //
 // O iframe envia mensagens via postMessage:
 //   - iv_captacao_height   → ajusta a altura do iframe

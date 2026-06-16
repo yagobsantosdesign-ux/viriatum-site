@@ -17,7 +17,7 @@ const stats = [
 
 export function LeadForm({ formId = DEFAULT_FORM_ID, redirectTo }: LeadFormProps = {}) {
   const iframeRef = useRef<HTMLIFrameElement>(null)
-  const formSrc = `https://escritorioviriato.com/captacao/${formId}?embed=1`
+  const formSrc = `https://www.escritoriovtm.com/captacao/${formId}?embed=1`
 
   useEffect(() => {
     const handleMessage = createCaptacaoHandler({

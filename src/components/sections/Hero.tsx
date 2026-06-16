@@ -4,7 +4,7 @@ import { createCaptacaoHandler } from '../../lib/captacao'
 
 const FORM_ID = 'e7e33513-2927-4de5-b0ed-57a385f675c7'
 const FORM_NAME = 'Form 01 - Hero'
-const FORM_SRC = `https://escritorioviriato.com/captacao/${FORM_ID}?embed=1`
+const FORM_SRC = `https://www.escritoriovtm.com/captacao/${FORM_ID}?embed=1`
 
 function CaptacaoForm({ className = '' }: { className?: string }) {
   const iframeRef = useRef<HTMLIFrameElement>(null)
