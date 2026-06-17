@@ -282,7 +282,7 @@ body {
   align-items: flex-end;
   justify-content: flex-start;
   padding-top: 24px;
-  padding-bottom: 48px;
+  padding-bottom: 32px;
   overflow: hidden;
   position: relative;
   z-index: 1;
@@ -389,7 +389,12 @@ body {
 
 /* Mobile: form no painel de texto; desktop: form sobre a foto */
 .hero-form-card--mobile { display: none; }
-.hero-form-card--desktop-wrapper { width: 100%; max-width: 400px; }
+.hero-form-card--desktop-wrapper {
+  width: 100%;
+  max-width: 400px;
+  transform: scale(0.84);
+  transform-origin: bottom left;
+}
 .hero-captacao-iframe.hero-form-card--mobile { display: none; }
 
 /* Responsivo — tablet e abaixo */
